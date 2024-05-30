@@ -1,0 +1,186 @@
+body {
+  font-family: "poppins";
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  max-width: 90vw;
+  margin: auto;
+  text-align: center;
+  padding-top: 10px;
+  transition: all .5s ease;
+}
+
+/* header styles */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 1.6rem;
+}
+/* shopping cart styles */
+header .icon-cart {
+  position: relative;
+  cursor: pointer;
+}
+.custom-icon {
+  font-size: 2rem;
+}
+
+/* shopping cart counter styles */
+header .icon-cart span {
+  cursor: pointer;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: -18px;
+}
+
+/* item image styles */
+.listProduct .item img {
+  width: 90%;
+  filter: drop-shadow(0 50px 20px #0009);
+}
+
+/* product list styles */
+.listProduct {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); /* 4 equal sized columns */
+  gap: 20px;
+}
+
+/* item card styling */
+.listProduct .item {
+  background-color: #eeeee6;
+  padding: 12px;
+  border-radius: 20px;
+}
+
+/* item title */
+.listProduct .item h2 {
+  font-weight: 500;
+  font-size: large;
+}
+
+/* item price styles */
+.listProduct .item .price {
+  letter-spacing: 4px;
+  font-size: small;
+}
+
+/* add to cart button */
+.listProduct .item button {
+  background-color: #353432;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+/* add to cart button hover effects */
+.listProduct .item button:hover {
+  background-color: rgba(31, 25, 28, 0.78);
+  transform: scale(1.05);
+}
+
+/* shopping cart styles */
+.cartTab {
+  width: 400px;
+  background-color: #353432;
+  color: #eee;
+  position: fixed;
+  inset: 0 -400px 0 auto;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  transition: 0.5s;
+}
+
+/* when the body has the class showCart added to it, show shoppingCart */
+body.showCart .cartTab {
+  inset: 0 0 0 auto;
+}
+
+body.showCart .container {
+  transform: translateX(-250px);
+}
+
+.cartTab h1{
+  padding: 20px;
+  margin: 0;
+  font-weight: 300; 
+}
+
+.cartTab .btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .btn button {
+  background-color: #E8BC0E;
+  border: none;
+  font-family: "poppins";
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cartTab .btn .close {
+  background-color: #eee;
+}
+
+.cartTab .listCart .item img {
+  width: 100%;
+}
+
+.cartTab .listCart .item {
+  display: grid;
+  grid-template-columns: 70px 150px 50px 1fr;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.listCart .quantity span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #eee;
+  color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* remove the bg from the quantity selectors number  */
+.listCart .quantity span:nth-child(2) {
+  background-color: transparent;
+  color: #eee;
+}
+
+/* create a different color for even entries to the cart, +visibility */
+.listCart .item:nth-child(even) {
+  background-color: #eee1;
+}
+
+/* add scrollbar to shopping cart section if needed */
+.listCart {
+  overflow: auto;
+}
+
+/* hide the scrollbar, but it still works */
+.listCart::-webkit-scrollbar {
+  width: 0;
+}

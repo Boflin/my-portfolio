@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Gaming PC",
+    "price": 1200,
+    "image": "./images/product1png.png"
+  },
+  {
+    "id": 2,
+    "name": "Acer Laptop",
+    "price": 1000,
+    "image": "./images/product2.png"
+  },
+  {
+    "id": 3,
+    "name": "Pokemon BoxSet",
+    "price": 100,
+    "image": "./images/product3.png"
+  },
+  {
+    "id": 4,
+    "name": "Xbox One",
+    "price": 499,
+    "image": "./images/product4.png"
+  },
+  {
+    "id": 5,
+    "name": "Playstation 5",
+    "price": 499,
+    "image": "./images/product5png.png"
+  },
+  {
+    "id": 6,
+    "name": "Nintendo Switch",
+    "price": 399,
+    "image": "./images/product6.png"
+  },
+  {
+    "id": 7,
+    "name": "Nintendo 3DS",
+    "price": 299,
+    "image": "./images/product7.png"
+  },
+  {
+    "id": 8,
+    "name": "Apple Watch",
+    "price": 250,
+    "image": "./images/product8.png"
+  }
+
+]

@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  text-align: center;
+}
+.title-name {
+  background-color: rgb(245, 52, 52);
+  color: #fff;
+}
+.nav {
+  margin-top: 20px;
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nav-item {
+  margin: 2px 8px;
+  margin-right: 20px;
+  padding: 1px;
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+  color: #007bff; /* Adjust the hover color as needed */
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+}
+
+.project-card {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+  width: 100%;
+  max-width: 300px;
+  object-fit: cover;
+}
+
+.project-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.project-title {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.project-description {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.project-skills {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: auto;
+}

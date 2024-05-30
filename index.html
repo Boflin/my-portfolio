@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 
+		Author: Cory Mischiek
+		Date: 2024-04-30
+		Description: A portfolio of my coding projects and work.
+
+		PROJECTS:  1 - RESPONSIVE WEBPAGE EXAMPLE = NET NINJA BOOK
+							 2 - E COMMERCE WEBSITE = sales page
+							 3 - CONTENT MANAGEMENT SYSTEM (CMS) 
+							 4 - PORTFOLIO WEBSITE
+							 5 - WEB APPLICATION 
+							 6 - API INTEGRATION
+							 7 - INTERACTIVE MAP
+							 
+	 -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesCopy.css">
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	 <link rel="stylesheet" href="styles.css">
+
+	<title>Cory Mischiek - Portfolio</title>
+</head>
+
+<body class="page bg-light">
+
+	<main>
+		<div class="container-xxl">
+			<!-- <div class="col-12">
+				<div class="row">
+					<h1 class="display-1 m-2 p-2 text-center bg-white d-none d-lg-block">My Portfolio</h1>
+					<small class="text-center mt-0 mb-2 d-lg-none">My Portfolio</small>
+				</div> -->
+
+				<nav class="navbar navbar-expand-lg bg-white">
+					<div class="container-fluid">
+						<a href="#" class="navbar-brand">
+							<img src="images/coding.svg" alt="logo" class="logo p-0 m-0" width="34">
+						</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="#collapseExample" data-bs-target="collapse">All Projects</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="./projects/bootstrapCrashCourse/index.html">eBook Sales Page <span class="badge text-bg-primary">New</span> </a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Web Applications
+									</a>
+
+									<!-- Dropdown Menu Start -->
+									<ul class="dropdown-menu">
+										<!-- <li><hr class="dropdown-divider"></li> -->
+										<h5 class="dropdown-title">Using APIs</h5>
+										<li><a class="dropdown-item" href="./projects/APIs/weatherApp/index.html">Weather App</a></li>
+										<li><a class="dropdown-item" href="./projects/APIs/pokeAPI/index.html">Pokedex</a></li>
+										<li><a class="dropdown-item" href="#">Pokemon Searcher</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<h5 class="dropdown-title">External Content Apps</h5>
+										<li><a class="dropdown-item" href="#">Something else here</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#contact">Contact</a>
+								</li>
+							</ul>
+							<form class="d-flex" role="search">
+								<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+								<button class="btn btn-outline-success" type="submit">Search</button>
+							</form>
+						</div>
+					</nav>
+
+				</div><!-- .container-fluid-->
+			</div>
+		</div><!-- .container-xxl-->
+		
+
+	<section class="bg-light p-2 m-2 text-info">	
+		<div class="container g-5 text-center justify-content-center align-items-center">
+			<h1 class="display-1 text-dark border-bottom border-2">My Portfolio</h1>
+			<h2 class="my-5 border-top border-bottom text-dark">All Projects</h2>
+			<div class="row my-3">
+				<!-- Button to Open the collapse -->
+				<button class="btn btn-outline-secondary border border-1 border-info text-center justify-content-center border-black d-flex w-100" style="width: auto; height: 44px;"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					<img src="./images/coding.svg" class="img-fluid" style="height: 30px;" alt="">
+						&nbsp; View Basic Projects
+					</button>
+					<!-- Collapse content -->
+					<div class="collapse" id="collapseExample">
+						<div class="card card-body bg-light">
+							<p class="description text-dark small">
+								These are a few of the projects I've built, either on my own. Some were submitted as school projects, 
+								some are personal projects, and some have been assigned as a part of an online course. <br>
+								I've gotten familar using Bootstrap, jQuery and also the base CSS.
+							</p>
+
+							<div class="container">
+								<nav class="nav">
+									<ul class="nav-list">
+										<li class="nav-item"><a href="./projects/quiz/quiz.html">QuizApp</a></li>
+										<li class="nav-item"><a href="./projects/nutritionLabel/label.html">Nutrition Label</a></li>
+										<li class="nav-item"><a href="./projects/cafeMenu/cafeMenu.html">Cafe Menu</a></li>
+										<!-- <li class="nav-item"><a href="./projects/catPhotoApp/catPhotoApp.html">Cat Photo App</a></li> -->
+										<!-- <li class="nav-item"><a href="./projects/cssMarkers/markers.html">CSS Markers</a></li> -->
+										<!-- <li class="nav-item"><a href="./projects/registrationForm2/form2.html">Registration Form #2</a></li> -->
+										<li class="nav-item"><a href="./projects/eCommerceWebsite/index.html">eCom Example</a></li>
+										<li class="nav-item"><a href="./projects/restaurant-menu/index.html">Pizza Restaurant</a></li>
+										<!-- <li class="nav-item"><a href="./projects/registrationForm/form.html">TBD</a></li> -->
+										<!-- <li class="nav-item"><a href="./projects/registrationForm/form.html">TBD</a></li> -->
+										<!-- <li class="nav-item"><a href="./projects/registrationForm/form.html">TBD</a></li>  -->
+									</ul>	
+								</nav>	
+							</div>	
+						</div>	
+						<div class="container">
+
+							<!-- <h4 class="text-dark my-3">Project Information:</h4> -->
+							<div class="row">
+								<div class="card my-3">
+									<h5 class="project-title card-header">Quiz App:</h5>
+									<div class="card-body">
+										<p class="small project-info card-text">
+											A quiz for the user, showcasing use of form inputs like radio, checkboxes, email input & validation, text and number inputs. Proper labeling, adding legends and a uniform styling throughout. 
+											<br> <span class="small text-muted "><em>This was completed during a coding course through <a href="https://www.freecodecamp.org">Free Code Camp</a></em></span>
+										</p>
+									</div>
+									<div class="card-footer">
+										<a href="./projects/quiz/quiz.html" class="btn btn-sm btn-outline-secondary">View Project</a>
+									</div>
+								</div>
+
+								<br>
+
+								<div class="card my-3">
+									<h5 class="project-title card-header">Nutrition Label:</h5>
+									<div class="card-body">
+										<p class="small project-info card-text">
+											A recreation of a Nutrition Label. The reason for completing was to showcase the specific placement of text and also copying a look from a reference item/photo and converting that onto a webpage. 
+											<br> <span class="small text-muted "><em>This was completed during a coding course through <a href="https://www.freecodecamp.org">Free Code Camp</a></em></span>
+										</p>
+									</div>
+									<div class="card-footer">
+										<a href="./projects/quiz/quiz.html" class="btn btn-sm btn-outline-secondary">View Project</a>
+									</div>
+								</div>
+
+								<div class="card my-3">
+									<h5 class="project-title card-header">Cafe Menu:</h5>
+									<div class="card-body">
+										<p class="small project-info card-text">
+											One of my first full stylings with CSS. It's a fictional mennu for a cafe. Showcasing a uniform style. Some alignment and display tweaks and a layout that's end user friendly with the information and look.
+											<br> <span class="small text-muted "><em>This was completed during a coding course through <a href="https://www.freecodecamp.org">Free Code Camp</a></em></span>
+										</p>
+									</div>
+									<div class="card-footer">
+										<a href="./projects/quiz/quiz.html" class="btn btn-sm btn-outline-secondary">View Project</a>
+									</div>
+								</div>
+
+								<div class="card my-3">
+									<h5 class="project-title card-header">Pizza Restaurant:</h5>
+									<div class="card-body">
+										<p class="small project-info card-text">
+											A fictional site for a small local pizza shop. Modern and professional look, section for reviews where you're able to add a review. Google map integration for the location, and menu display wtih an order system.
+											I believe this is a great showcase of a lot of different skills. 
+											<br> <span class="small text-muted "><em>This was completed 100% by me with some inspiration based off of prior projects i've completed.</em></span>
+										</p>
+									</div>
+									<div class="card-footer">
+										<a href="./projects/quiz/quiz.html" class="btn btn-sm btn-outline-secondary">View Project</a>
+									</div>
+								</div>
+
+							</div><!--.row-->
+						</div>
+					</div> <!-- .collapse-->	
+				</div><!--    .row-->
+			</div> <!--     .container-->
+
+
+		<!-- View Bootstrap Projects -->
+			<div class="container g-5 gap">
+				<div class="row my-3">
+					<div class="text-center">
+					</div>
+					<button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bootstrapCollapse" aria-expanded="false" aria-controls="bootstrapCollapse">
+						<img src="./images/bootstrapLogo1.svg" class="img-fluid" alt="" style="height: 34px;">
+						View Bootstrap Projects
+					</button>
+				</div>
+					
+			<div class="collapse" id="bootstrapCollapse">
+				<div class="container bg-info">
+					<!-- *Bootstrap projects Container Start -->
+					<p class="text-white">hello there</p>
+				</div>
+			</div>
+
+
+				<div class="row">
+					<button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#nextjsCollapse" aria-expanded="false" aria-controls="nextjsCollapse">
+						<img src="./images/nextjsLogo4.Default" class="img-fluid" alt="" style="height: 40px;">
+						React - Next.js Projects
+					</button>
+				</div>
+
+				<div class="collapse" id="nextjsCollapse">
+					<div class="container bg-light">
+						<!-- *React and Next.js Container start -->
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section class="project-cards container mt-5">
+			<h2 class="text-center text-dark mb-5 border-top border-bottom">My Favorites</h2>
+			
+			<!-- START OF PROJECT CARD -->
+			<div class="project-card mb-4 shadow-sm">
+					<img src="images/eBookSite.png" alt="eBook Sales Page Thumbnail" class="project-img">
+					<div class="project-details">
+							<h3 class="project-title">Responsive landing Page</h3>
+							<p class="project-description">A landing page for an eBook for sale. Modern, professional look.</p>
+							<p class="project-skills">Utilizing Bootstrap for a modern professional look and showcasing many features including Off-Canvas, Modals, Cards, and much more</p>
+							<a href="/projects/bootstrapCrashCourse/index.html" class="btn btn-primary">View Project</a>
+					</div>
+			</div>
+	
+			<div class="project-card mb-4 shadow">
+					<img src="images/eComSite.png" alt="eCom Website Thumbnail" class="project-img">
+					<div class="project-details">
+							<h3 class="project-title">eCom Website</h3>
+							<p class="project-description">eCom Site with a working add-to-cart. Fetching JSON data.</p>
+							<p class="project-skills">Skills: HTML, CSS, JavaScript, JSON</p>
+							<a href="./projects/eCommerceWebsite/index.html" class="btn btn-primary">View Project</a>
+					</div>
+			</div>
+	
+			<div class="project-card mb-4 shadow-lg">
+					<img src="images/quizThumbnail.png" alt="Project 1 Thumbnail" class="project-img">
+					<div class="project-details">
+							<h3 class="project-title">Project 1</h3>
+							<p class="project-description">Description of project1...</p>
+							<p class="project-skills">Skills: HTML, CSS, JavaScript</p>
+							<a href="#" class="btn btn-primary">View Project</a>
+					</div>
+			</div>
+			<!-- ADD MORE PROJECT CARDS AS NEEDED -->
+	</section>
+	
+
+		<hr style="height: 3px; background-color: black ;">
+
+		<!-- TODO: Fix this layout, it looks like shit. -->
+
+		<section class="my-skills">
+
+			<!--! Start of new addition to skills. Using Cards! -->
+			<div class="container mt-5">
+				<h2 class="text-center mb-4">Skills</h2>
+				<div class="row row-cols-12 g-4 col-12 col-sm-12">
+
+					<div class="col-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h5 class="card-title">Responsive Design</h5>
+								<p class="card-text">Creating websites that work on all devices.</p>
+								<span class="badge bg-primary">HTML</span>
+								<span class="badge bg-secondary">CSS</span>
+								<span class="badge bg-success">Bootstrap</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h5 class="card-title">Animations</h5>
+								<p class="card-text">Enhancing user experience with smooth animations.</p>
+								<span class="badge bg-primary">CSS</span>
+								<span class="badge bg-secondary">JavaScript</span>
+								<span class="badge bg-success">GSAP</span>
+								<br>
+								<!-- <button class="btn btn-warning btn-sm mt-2">See Example</button> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h5 class="card-title">Flexbox</h5>
+								<p class="card-text">Creating flexible and efficient layouts.</p>
+								<span class="badge bg-primary">CSS</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class="col">
+						<div class="card h-100">
+							<div class="card-body">
+								<h5 class="card-title">Grid</h5>
+								<p class="card-text">Building grid-based layouts for responsive design.</p>
+								<span class="badge bg-primary">CSS</span>
+								<span class="badge bg-secondary">Bootstrap</span>
+							</div>
+						</div>
+					</div> -->
+				</div>
+
+			</div><!--! .container end-->
+
+
+			<!-- <div class="container my-4">
+				<header>
+					<h2 class="text-start text-lg-center">My Skills</h2>
+				</header>
+			</div>
+				<div class="container text-lg-center">
+					
+					<ul style="list-style: none;">
+						<li>Responsive Web Design</li>
+						<li>HTML5</li>
+						<li>
+							CSS
+							<ul style="list-style: none;">
+								<li>Animations</li>
+								<li>Flexbox</li>
+								<li>Grid</li>
+								<li>Pseudo Selectorss</li>
+							</ul>
+						</li>
+						<li>JavaScript</li>
+						<li>jQuery</li>
+						<li> React and Next.js Frameworks
+							<ul style="list-style: none;">
+								<li>Continuing to learn and add these to my portfolio</li>
+								<li>Understand when and why these are useful</li>
+								<li>Continuing to increase my proficiency</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+		</section> -->
+		
+		<hr style="height: 3px; background-color: black ;">
+
+		<section id="contact" class="text-lg-center bg-light text-dark">
+			<div class="container form-container">
+				<h2 class="contact-title text-lg-center m-3">Contact Me</h2>
+				
+				<form class="row g-3">
+					<div class="col-12">
+						<div class="input-group">
+							<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+							<input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
+						</div>
+					</div>
+	
+					<div class="col-12">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Email" aria-label="Email">
+							<span class="input-group-text">@</span>
+							<input type="text" class="form-control" placeholder="example.com" aria-label="Server">
+						</div>
+					</div>
+	
+					<div class="col-12">
+						<div class="form-floating">
+							<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+							<label for="floatingTextarea">Comments</label>
+						</div>
+					</div>
+
+					<div class="col-12">
+						<button type="submit" class="btn btn-primary mb-4">Send Message</button>
+					</div>
+				</form>
+
+			</div><!-- .form-container-->
+		</section>
+
+
+	</main>
+
+	<!-- BootStrap and Popper imports -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
