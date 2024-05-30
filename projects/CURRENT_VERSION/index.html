@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    Fuckin around with jQuery!
+   -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- jQuery import -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>hey</h1>
+  <h2>Sup</h2>
+  <p class="p1">This is Cory</p>
+
+  <script>
+    $(document).ready(function() {
+
+      // edits the h1 
+      $('h1').css('color', 'yellow');
+
+      // edits the h2
+      $('h2').css('color', 'blue');
+
+      // edits the p
+      $('p').css('color', '#fff');
+
+      // edits the body
+      $('body').css('background-color', 'black');
+
+    });
+  </script>
+</body>
+</html>

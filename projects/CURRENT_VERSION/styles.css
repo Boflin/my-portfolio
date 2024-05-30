@@ -1,0 +1,251 @@
+/* Show it's not fixed to the top */
+body {
+  min-height: 75rem;
+  background-color: #cadcf5cb;
+}
+
+/*  ********* RESET ********* */
+* { 
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+/* ************************************************************************* */
+/*                             HOME PAGE STYLES                              */
+/* ************************************************************************* */
+
+.site-title {
+  font-family: "workbench";
+}
+a {
+  border: none;
+  text-decoration: none;
+}
+
+/* Sunset to Sound navLogo */
+.navLogo {
+  height: 33px;
+  width: 100px;
+  border: none !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+/* Home / About / Contact navLink*/
+a.nav-link {
+  font-size: 20px;
+  font-family: "workbench";
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+/* "Sunsetto Merchandise */
+h1.title {
+  color: red !important;
+  font-family: "Amatic SC";
+  margin-bottom: 25px;
+  font-size: 60px;
+}
+
+/* Product Card styles */
+.card {
+  border: 2px solid black; 
+  border-radius: 30px;
+  max-width: 19rem;
+  margin: 0 auto; /* center the cards */ 
+  text-align: center;
+}
+
+.product-description {
+  font-family: "Saira Condensed";
+  margin: 4px;
+  text-align: center !important;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.product-price {
+  color: green;
+  margin: 12px;
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* card footer stylings - stars,reviews */
+.card-footer {
+  padding: 12px;
+  margin: 7px;
+  background-color: #eef2f8;
+}
+
+/* Product Title styles */
+.product-name {
+  font-family: "Indie Flower";
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+  /* background-color: rgb(235, 243, 245); */
+}
+
+/* card image */
+.card-img-top {
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+
+/* card image hover effects */
+.card-img-top:hover {
+  transform: scale(.9);
+  border-radius: 250px;}
+
+.add-to-cart:hover {
+  transform: scale(1.04); /* grows on hover */
+  border: 1px solid black;
+}
+
+.slider-img {
+  height: 333px;
+}
+
+.footer-container {
+
+}
+
+.homeFooter {
+  background-color: grey;
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "workbench" !important;
+  font-size: 28px;
+  width: 100% !important;
+}
+
+
+
+/* ************************************************************************* */
+/*                             ABOUT PAGE STYLES                             */
+/* ************************************************************************* */
+
+.about_banner-img {
+  width: 100%;
+  height: 300px;
+  margin: 0px;
+  padding: 0px;
+  border: 2px dashed red;
+}
+
+.about-sunsetto {
+  font-family: "Cinzel";
+  font-size: 36px;
+  margin: 12px;
+  padding: 12px;
+
+}
+
+.about_text {
+  color: black;
+  font-family: 'Orbitron';
+  font-size: 18px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.socials-list {
+  margin: 2px;
+  padding: 2px;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.socials-list:hover {
+  text-transform: uppercase;
+}
+
+.social-icon {
+  transition: all ease 0.4s;
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.about_main {
+  background-color: whitesmoke;
+}
+
+/* ************************************************************************* */
+/*                             CONTACT PAGE STYLES                           */
+/* ************************************************************************* */
+
+body {
+  font-family: Arial, sans-serif;
+}
+.container-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+textarea {
+  height: 150px;
+}
+input[type="submit"] {
+  background-color: #ff7300;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #b32a00;
+}
+
+/* ************************************************************************* */
+/*                             MODAL  STYLES                                 */
+/* ************************************************************************* */
+.productTitle {
+  font-family: "workbench";
+  font-size: 27px;
+}
+
+.modal-desc {
+  font-family: "Saira Condensed";
+  font-size: 23px;
+}
+
+.modal-price {
+  color: rgb(46, 218, 46);
+  font-size: 22px;
+  
+}
+
+.btn-add-to-cart {
+
+}
