@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon List</title>
+    <style>
+        /* Define CSS classes for different types */
+        .fire { background-color: #FF6D6D; }
+        .water { background-color: #6D8AFF; }
+        .fairy { background-color: #FFABE2; }
+        .grass { background-color: #78C850; } /* Green for grass */
+        .rock { background-color: #B8A038; } /* Grey for rock */
+        .dark { background-color: #705848; } /* Dark for dark */
+        .black { background-color: #303030; } /* Black for black */
+        .electric { background-color: #F8D030; } /* Yellow for electric */
+        .fighting { background-color: #C03028; } /* Red for fighting */
+        .flying { background-color: #A890F0; } /* Teal for flying */
+        /* Add more classes for other types as needed */
+        /* Define a gradient class for multi-typed Pokémon */
+        .gradient { background: linear-gradient(to right, #FF6D6D, #6D8AFF); }
+        /* Style for list items */
+        .list-item { padding: 10px; margin: 5px 0; border-radius: 5px; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Pokémon List</h1>
+    <ul id="pokemon-list"></ul>
+
+    <script>
+        // Function to fetch additional details for a Pokémon
+        function fetchPokemonDetails(url) {
+            return fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Extract and return the type(s) of the Pokémon
+                    const types = data.types.map(type => type.type.name);
+                    return types;
+                });
+        }
+
+        // Fetch data for the first 10 Pokémon
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+            .then(response => response.json())
+            .then(data => {
+                // Iterate over the results
+                data.results.forEach(pokemon => {
+                    // Fetch details for each Pokémon
+                    fetchPokemonDetails(pokemon.url)
+                        .then(types => {
+                            // Create list item with Pokémon name and typing
+                            const listItem = document.createElement('li');
+                            // Add class for each type
+                            types.forEach(type => listItem.classList.add(type));
+                            // Add gradient class for multi-typed Pokémon
+                            if (types.length > 1) listItem.classList.add('gradient');
+                            listItem.classList.add('list-item');
+                            listItem.textContent = pokemon.name;
+
+                            // Append list item to the list
+                            document.getElementById('pokemon-list').appendChild(listItem);
+                        })
+                        .catch(error => {
+                            console.error(`Error fetching details for ${pokemon.name}:`, error);
+                        });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching Pokémon:', error);
+            });
+    </script>
+</body>
+</html>
