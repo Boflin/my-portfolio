@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- favicon stuff -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- bootStrap import -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- font awesome import -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Air Jordan Product Card</title>
+</head>
+<body>
+  <div class="container">
+
+    <div class="row my-2">
+
+      <div class="col-lg-6 col-md-6 shadow content p-5">
+
+        <div class="row my-3">
+          <div class="d-flex justify-content-between">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="price">
+              $<span>550</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-lg-5 my-md-4">
+          <h1>Jordan 1</h1>
+          <p>Mens Running Shoe</p>
+        </div>
+        <div class="row my-5">
+          <p>COLORS</p>
+          <div class="d-flex">
+            <div class="form-check">
+              <input type="radio" name="radio1" id="radio1" class="form-check-input">
+            </div>
+            <div class="form-check">
+              <input type="radio" name="radio2" id="radio2" class="form-check-input">
+            </div>
+            <div class="form-check">
+              <input type="radio" name="radio3" id="radio3" class="form-check-input">
+            </div>
+            <div class="form-check">
+              <input type="radio" name="radio4" id="radio4" class="form-check-input">
+            </div>
+          </div>
+        </div><!--!.row my-5-->
+
+        <div class="row my-3">
+          <ul style="list-style: none;">
+            <li>
+              <i class="fas fa-long-arrow-alt-right"></i>&nbsp;
+              Imported
+            </li>
+            <li>
+              <i class="fas fa-long-arrow-alt-right"></i>&nbsp;
+              Synthetic Sole
+            </li>
+            <li>
+              <i class="fas fa-long-arrow-alt-right"></i>&nbsp;
+              Multiple Color Options
+            </li>
+          </ul>
+        </div>
+        <div class="row my-4">
+          <div class="cart-btn d-flex justify-content-center">
+            <button type="button" class="btn btn-green shadow">
+              <i class="fas fa-shopping-basket"> ADD TO CART</i>
+            </button>
+          </div>
+        </div>
+      </div><!--!.col-lg-6 -->
+      <!-- * Images Start -->
+      <div class="col-lg-6 col-md-6 p-0 py-md-5 my-xs-0 my-lg-4 my-md-5">
+        <div class="image green greenColor py-2 my-lg-0 my-md-5">
+          <img src="images/green.png" class="img-fluid" alt="product image">
+        </div>
+        <div class="image purple purpleColor py-2 my-lg-0 my-md-5" style="display: none;">
+          <img src="images/purple.png" class="img-fluid" alt="product image">
+        </div>
+        <div class="image red redColor py-2 my-lg-0 my-md-5" style="display: none;">
+          <img src="images/red.png" class="img-fluid" alt="product image">
+        </div>
+        <div class="image pink pinkColor py-2 my-lg-0 my-md-5" style="display: none;">
+          <img src="images/pink.png" class="img-fluid" alt="product image">
+        </div>
+      </div>
+    </div>
+
+  </div><!--!.container-->
+
+  <!-- js import -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>

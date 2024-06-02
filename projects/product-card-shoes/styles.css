@@ -1,0 +1,124 @@
+body {
+  background-color: #eee;
+  font-family: "poppins", sans-serif;
+}
+
+.content{
+  background-color: #fff;
+}
+
+.image{
+  width: 100%;
+}
+
+.greenColor{
+  background-image: linear-gradient(to right, #20c997, #28a745);
+}
+
+.purpleColor{
+  background-image: linear-gradient(to right, #441ca6, #0068ab);
+}
+
+.redColor{
+  background-image: linear-gradient(to right, #da3544, var(--bs-red));
+}
+
+.pinkColor{
+  background-image: linear-gradient(to right, #8e1f54, var(--bs-pink));
+}
+
+.stars .fa-star{
+  color: #fbe309;
+}
+
+#radio1.form-check-input{
+  cursor: pointer;
+  background-color: #20c997;
+}
+
+#radio1.form-check-input:checked{
+  background-color: #20c997;
+  border-color: #20c997;
+}
+
+#radio2.form-check-input{
+  cursor: pointer;
+  background-color: #6f42c1;
+}
+
+#radio2.form-check-input:checked{
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+#radio3.form-check-input{
+  cursor: pointer;
+  background-color: #da3544;
+}
+
+#radio3.form-check-input:checked{
+  background-color: #da3544;
+  border-color: #da3544;
+}
+
+#radio4.form-check-input{
+  cursor: pointer;
+  background-color: #d62284;
+}
+
+#radio4.form-check-input:checked{
+  background-color: #d62284;
+  border-color: #d62284;
+}
+
+.btn-purple{
+  color: white;
+  background-image: linear-gradient(to right, #441ca6, #0068ab);
+  letter-spacing: 2px;
+  border-radius: 2rem;
+}
+
+.btn-purple:hover, 
+.btn-purple:focus{
+  color: #fff;
+  background-image: linear-gradient(to right, #0068ab, #441ca6);
+}
+
+.btn-green{
+  color: white;
+  background-image: linear-gradient(to right, #20c997, #28a745);
+  letter-spacing: 2px;
+  border-radius: 2rem;
+}
+
+.btn-green:hover, 
+.btn-green:focus{
+  color: #fff;
+  background-image: linear-gradient(to right, #28a745, #20c997);
+}
+
+.btn-red{
+  color: white;
+  background-image: linear-gradient(to right, #da3544, var(--bs-red));
+  letter-spacing: 2px;
+  border-radius: 2rem;
+}
+
+.btn-red:hover, 
+.btn-red:focus{
+  color: #fff;
+  background-image: linear-gradient(to left, #da3544, var(--bs-red));
+}
+
+.btn-pink{
+  color: white;
+  background-image: linear-gradient(to right, #8e1f54, var(--bs-pink));
+  letter-spacing: 2px;
+  border-radius: 2rem;
+}
+
+.btn-pink:hover, 
+.btn-pink:focus{
+  color: #fff;
+  background-image: linear-gradient(to left, #8e1f54, var(--bs-pink));
+}
