@@ -19,6 +19,8 @@ async function fetchData() {
     const tableElement = document.getElementById("pokemonStats");
     const abilitiesElement = document.getElementById("abilities");
     const abilitiesListElement = document.getElementById("abilitiesList");
+    const encountersElement = document.getElementById("encounters");
+    const encountersListElement = document.getElementById("encountersList");
 
     imgElement.src = pokemonSprite;
     imgElement.style.display = "block";
@@ -42,6 +44,24 @@ async function fetchData() {
     });
 
     abilitiesElement.style.display = "block";
+
+    // Fetch encounter data
+    const encounterResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/encounters`);
+    if (!encounterResponse.ok) {
+      throw new Error("Could not fetch encounter data");
+    }
+    const encounterData = await encounterResponse.json();
+
+    // Clear previous encounters
+    encountersListElement.innerHTML = '';
+
+    encounterData.forEach(encounter => {
+      const listItem = document.createElement('li');
+      listItem.textContent = encounter.location_area.name.replace(/-/g, ' ');
+      encountersListElement.appendChild(listItem);
+    });
+
+    encountersElement.style.display = "block";
 
   } catch (error) {
     console.error(error);

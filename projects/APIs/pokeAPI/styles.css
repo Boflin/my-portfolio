@@ -10,6 +10,14 @@ body {
   height: 100vh;
 }
 
+.bold {
+  font-weight: 800;
+}
+
+.italic {
+  font-style: italic;
+}
+
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -84,6 +92,19 @@ body {
 
 #pokemonStats tbody tr:nth-child(even) {
   background-color: #e6e6e6;
+}
+
+.img-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+img{
+  width: 250px;
+  height: 250px;
 }
 
 
