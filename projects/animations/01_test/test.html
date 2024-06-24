@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <title>Document</title>
+  <!-- !STYLE! -->
+  <style>
+    
+    /* Just basic color stylings, added a nice looking font, remove padding and margin preset */
+    body{
+      background-color: #131316;  
+      color: #fff;
+      font-family: 'poppins';
+      padding: 0;
+      margin: 0;
+
+    }
+
+    /*
+       Grid display type, and we want them horizonrally and vertically aligned (center). 
+       Height should be 100% of the viewport. 
+     */
+    section{
+      display: grid;
+      place-items: center;
+      align-content: center;
+      min-height: 100vh;
+    }
+
+
+  </style>
+  <!--!STYLE -->
+</head>
+
+<body>
+  
+  <section class="sectio1>
+    <h1>Hi I'm Cory</h1>
+    <p> this is my website</p>
+  </section>
+
+  <section>
+    <h2>Buy some code tutorials</h2>
+    <p>
+      and learn many tops that would have saved me a ton of time had I known them earlier. and you'll also 
+      get access to a bunch of my coding solutions, including work with Python, C, Visual Basic, HTML and CSS.
+    </p>
+  </section>
+
+  <section>
+    <h3>It's really worth it.</h3>
+  </section>
+
+
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entires.forEach((entry => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+
+      }));
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((e1)) => observer.observe(el)
+
+  </script>
+
+</body>
+</html>

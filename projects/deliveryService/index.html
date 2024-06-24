@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags, CSS, and Bootstrap links -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mischiek Delivery Service</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .container {
+      max-width: 600px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>  
+
+  <!-- Delivery Form and Result Section -->
+  <section class="selection bg-white">
+    <div class="container">
+      <h2 class="item-title text-center display-6"><i class="bi bi-box-seam text-primary"></i> Enter your item</h2>
+      <form id="deliveryForm">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="item" class="form-label text-center w-100">Item</label>
+            <input type="text" class="form-control" id="item" placeholder="Enter item name" required />
+          </div>
+          <div class="col-md-6">
+            <label for="destination" class="form-label text-center w-100">Destination</label>
+            <select class="form-select" id="destination" aria-label="Destination" required>
+              <option value="" selected disabled>Select a destination</option>
+              <option value="ns">North Sydney</option>
+              <option value="sm">Sydney Mines</option>
+              <option value="f">Florence</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="itemInfo" class="form-label"><i class="bi bi-info-circle"></i> Additional Information (optional)</label>
+          <textarea class="form-control" id="itemInfo" placeholder="Any additional information about the item" rows="2"></textarea>
+        </div>
+
+        <h2 class="destination-title text-center display-6"><i class="bi bi-geo text-primary"></i> Enter the destination details</h2>
+        <div class="my-3">
+          <label for="street" class="form-label"><i class="bi bi-signpost text-primary"></i> Street Name</label>
+          <input type="text" class="form-control" id="street" placeholder="Enter street name" required />
+        </div>
+        <div class="my-3">
+          <label for="houseNumber" class="form-label"><i class="bi bi-house-door text-primary"></i> House Number</label>
+          <input type="text" class="form-control" id="houseNumber" placeholder="Enter house number" required />
+        </div>
+        <div class="my-3">
+          <label for="apartmentNumber" class="form-label"><i class="bi bi-building text-primary"></i> Apartment Number (optional)</label>
+          <input type="text" class="form-control" id="apartmentNumber" placeholder="Enter apartment number" />
+        </div>
+        <div class="mb-3">
+          <label for="addressInfo" class="form-label"><i class="bi bi-info-circle text-primary"></i> Additional Information (optional)</label>
+          <textarea class="form-control" id="addressInfo" placeholder="Any additional information about the address (e.g., side door, back stairs)" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary my-2">Submit</button>
+      </form>
+
+      <hr>
+      <div id="result" class="mt-3 border border-2 shadow-lg"></div>
+    </div>
+  </section>
+
+  <!-- Payment Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentModalLabel">Payment Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4 class="mb-3">Order Summary</h4>
+          <p id="orderSummary"></p>
+          <form id="paymentForm">
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" required>
+            </div>
+            <div class="mb-3">
+              <label for="expiryDate" class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" id="expiryDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Payment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and JavaScript libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Mj5AfiQs9x3Se0eEmPbPBQZ+XxXPLZBO5sXTR+WNRMfYpTucVo5Exd0McwX6kP7r" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const deliveryForm = document.getElementById('deliveryForm');
+      const resultDiv = document.getElementById('result');
+      
+      deliveryForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+        const item = document.getElementById('item').value;
+        const destination = document.getElementById('destination').value;
+        const itemInfo = document.getElementById('itemInfo').value;
+        const street = document.getElementById('street').value;
+        const houseNumber = document.getElementById('houseNumber').value;
+        const apartmentNumber = document.getElementById('apartmentNumber').value;
+        const addressInfo = document.getElementById('addressInfo').value;
+
+        const resultHTML = `
+          <div class="p-3">
+            <h4><i class="bi bi-box-seam text-primary"></i> Delivery Details</h4>
+            <p><strong>Item:</strong> ${item}</p>
+            <p><strong>Destination:</strong> ${destination}</p>
+            <p><strong>Item Info:</strong> ${itemInfo}</p>
+            <h4><i class="bi bi-geo text-primary"></i> Address Details</h4>
+            <p><strong>Street:</strong> ${street}</p>
+            <p><strong>House Number:</strong> ${houseNumber}</p>
+            <p><strong>Apartment Number:</strong> ${apartmentNumber}</p>
+            <p><strong>Additional Info:</strong> ${addressInfo}</p>
+
+            <button type="button" id="proceedToPayment" class="btn btn-primary">Proceed to Payment</button>
+          </div>
+        `;
+        
+        resultDiv.innerHTML = resultHTML;
+        resultDiv.style.display = 'block';
+
+        // Event listener for the proceed to payment button
+        const proceedToPaymentBtn = document.getElementById('proceedToPayment');
+        proceedToPaymentBtn.addEventListener('click', function () {
+          // Activate the payment modal
+          const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+          paymentModal.show();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

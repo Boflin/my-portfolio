@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie/Show Picker</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .container {
+            text-align: center;
+        }
+        #chooseBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .list-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <p><a href="../../index.html">Back to Portfolio</a></p>
+    <div class="header">Let's pick a show to watch!!</div>
+    <div class="container">
+        <button id="chooseBtn">CHOOSE</button>
+        <ul id="chosenList" class="list"></ul>
+    </div>
+
+    <script>
+        const tvShows = [
+            "Euphoria", "Game of Thrones", "House of the Dragon", "The Outsiders",
+            "Succession", "True Blood", "Westworld", "The Last of Us",
+            "True Detective", "The Leftovers", "Watchmen", "The Sopranos",
+            "The Wire", "The Office", "Black Mirror", "The Boys",
+            "Gen V", "The Mandalorian (StarWars)", "The Acolyte (StarWars)", "House of Cards",
+            "Parks and Rec", "Shameless", "Silicon Valley", "Futurama",
+            "House", "The Walking Dead", "American Horror Story", "What we do in the Shadows"
+        ];
+
+        const anime = [
+            "Cowboy Bepop", "Death Note", "Dragon Ball / DBZ / Movies", "Invincible", "Attack on Titan"
+        ];
+
+        const movies = [
+            "Mad Max + New One", "The Departed", "Star Wars 7-8-9", "LoTR Trilogy",
+            "Inception", "Seven", "The Hateful 8", "Inglorious Basterds",
+            "Avengers Series", "Pirates of the Carribean Movies"
+        ];
+
+        const allTitles = [...tvShows, ...anime, ...movies];
+
+        const chooseBtn = document.getElementById('chooseBtn');
+        const chosenList = document.getElementById('chosenList');
+
+        const chosenItems = [];
+
+        chooseBtn.addEventListener('click', () => {
+            if (chosenItems.length < 2) {
+                const randomIndex = Math.floor(Math.random() * allTitles.length);
+                const chosenTitle = allTitles[randomIndex];
+
+                if (!chosenItems.includes(chosenTitle)) {
+                    chosenItems.push(chosenTitle);
+                    const listItem = document.createElement('li');
+                    listItem.textContent = chosenTitle;
+                    listItem.className = 'list-item';
+                    chosenList.appendChild(listItem);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
