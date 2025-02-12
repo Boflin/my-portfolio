@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    /*border-bottom: 2px solid white;*/
+    text-decoration: underline dotted;
+    font-size: 30px;
+    padding: 20px;
+    margin-bottom: 0px;
+}
+
+#clockDisplay {
+    color: red;
+    font-size: 88px;
+    text-align: center;
+    font-family: "Bell MT";
+    font-weight: bold;
+}
+
+.container {
+    border: 1px solid red;
+    textalign: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin: 0 auto;
+    margin-top: 40px;
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Example</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    .column h2 {
+        text-align: center;
+    }
+    .item {
+        position: relative; /* Added for positioning the delete button */
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .item:hover {
+        background-color: #e9e9e9;
+    }
+    .item.dragging {
+        opacity: 0.5;
+    }
+    .delete-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        color: #999;
+        cursor: pointer;
+        padding: 3px;
+        background: none;
+        border: none;
+    }
+    .delete-button:hover {
+        color: red;
+    }
+    .container-add {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      align-self: center;
+      margin: 0 auto;
+    }
+    #new-item{
+      text-align: center;
+      align-items: center;
+      margin: 0 auto;
+      justify-content: center;
+    }
+    .addSpan{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      text-align: center;
+      padding: 0px;
+      padding-top: 10px;
+    }
+</style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="container-add">
+          <form class="add-form" onsubmit="addItem(event)">
+            <span class="addSpan">
+              <input type="text" id="new-item" placeholder="Add a new movie or show">
+              <button type="submit">Add</button>
+            </span>
+          </form>
+        </div>
+        <div id="movies-shows" class="column" ondrop="drop(event, 'watch-list')" ondragover="allowDrop(event)">
+            <h2>Movies and Shows to Watch</h2>
+      <div id="watch-list">
+
+
+        <div class="item" draggable="true" ondragstart="drag(event)" ondragend="endDrag(event)">
+                Avengers: Endgame
+                <button class="delete-button" onclick="deleteItem(this)">x</button>
+            </div>
+            <div class="item" draggable="true" ondragstart="drag(event)" ondragend="endDrag(event)">
+                Stranger Things
+                <button class="delete-button" onclick="deleteItem(this)">x</button>
+            </div>
+            <div class="item" draggable="true" ondragstart="drag(event)" ondragend="endDrag(event)">
+                The Matrix
+                <button class="delete-button" onclick="deleteItem(this)">x</button>
+            </div>
+            <div class="item" draggable="true" ondragstart="drag(event)" ondragend="endDrag(event)">
+                Game of Thrones
+                <button class="delete-button" onclick="deleteItem(this)">x</button>
+            </div>
+        </div>
+    </div>
+    <div id="finished" class="column" ondrop="drop(event, 'finished-list')" ondragover="allowDrop(event)">
+        <h2>Finished</h2>
+        <div id="finished-list">
+            <!-- Items will be dynamically added here -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+        event.target.classList.add('dragging');
+    }
+
+    function endDrag(event) {
+        event.target.classList.remove('dragging');
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event, targetId) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var draggedElement = document.getElementById(data);
+        
+        // Check if the item already exists in the target list
+        var targetList = document.getElementById(targetId);
+        if (!isItemInList(targetList, draggedElement)) {
+            targetList.appendChild(draggedElement.cloneNode(true));
+        }
+    }
+
+    function isItemInList(listContainer, draggedElement) {
+        var items = listContainer.getElementsByClassName('item');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].innerText.trim() === draggedElement.innerText.trim()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function addItem(event) {
+        event.preventDefault();
+        var newItemText = document.getElementById("new-item").value.trim();
+        if (newItemText !== "") {
+            var watchList = document.getElementById("watch-list");
+            if (!isItemInList(watchList, { innerText: newItemText })) {
+                var newItem = document.createElement("div");
+                newItem.className = "item";
+                newItem.innerText = newItemText;
+                newItem.id = 'item-' + Date.now();  // Assign a unique ID to each new item
+                newItem.setAttribute("draggable", "true");
+                newItem.setAttribute("ondragstart", "drag(event)");
+                newItem.setAttribute("ondragend", "endDrag(event)");
+
+                var deleteButton = document.createElement("button");
+                deleteButton.className = "delete-button";
+                deleteButton.innerText = "x";
+                deleteButton.onclick = function() {
+                    deleteItem(this);
+                };
+                newItem.appendChild(deleteButton);
+                watchList.appendChild(newItem);
+                document.getElementById("new-item").value = ""; // Clear the input field
+            } else {
+                alert("This item is already in the list.");
+            }
+        } else {
+            alert("Please enter a valid item.");
+        }
+    }
+
+    function deleteItem(button) {
+        var itemToDelete = button.parentElement;
+        itemToDelete.parentElement.removeChild(itemToDelete);
+    }
+</script>
+
+</body>
+</html>

@@ -5,24 +5,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mischiek Delivery Service</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    .container {
+
+    body{
+      background-image: linear-gradient(90deg, rgb(217, 200, 200), rgb(225, 225, 255));
+    justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container{
+      color: #020000;
+      font-family: 'Courier New', Courier, monospace;
       max-width: 600px;
       margin-top: 20px;
+      justify-content: center;
+      align-items: center;
     }
+    section{
+      background-color: red;
+    }
+    .gmap{
+      width: 100%;
+    }
+
+    .selection {
+
+      justify-content: center;
+    }
+
   </style>
+  
 </head>
 <body>  
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="bi bi-car-front-fill"></i> Car Rental Co.</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-1-circle-fill"></i> Log In</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-2-circle-fill"></i> Sign Up</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-3-circle-fill"></i> Become a Host</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle-fill"></i> How It Works</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill"></i> Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
   <!-- Delivery Form and Result Section -->
   <section class="selection bg-white">
-    <div class="container">
+    <div class="container p-2 m-2">
       <h2 class="item-title text-center display-6"><i class="bi bi-box-seam text-primary"></i> Enter your item</h2>
-      <form id="deliveryForm">
+      <form id="deliveryForm p-2 m-2">
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="item" class="form-label text-center w-100">Item</label>
@@ -44,6 +94,10 @@
         </div>
 
         <h2 class="destination-title text-center display-6"><i class="bi bi-geo text-primary"></i> Enter the destination details</h2>
+        
+        <!-- ! GOOGLE MAPS IMPORT -->
+        <iframe class="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.5480603223577!2d-60.21934712336024!3d46.23933148138774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b67e8cd0a0372bb%3A0xcc3a5ca26a484006!2s2%20Lorne%20St%2C%20Sydney%20Mines%2C%20NS%20B1V%203H6!5e0!3m2!1sen!2sca!4v1720071915277!5m2!1sen!2sca" width="500" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         <div class="my-3">
           <label for="street" class="form-label"><i class="bi bi-signpost text-primary"></i> Street Name</label>
           <input type="text" class="form-control" id="street" placeholder="Enter street name" required />
@@ -100,8 +154,14 @@
   </div>
 
   <!-- Bootstrap and JavaScript libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Mj5AfiQs9x3Se0eEmPbPBQZ+XxXPLZBO5sXTR+WNRMfYpTucVo5Exd0McwX6kP7r" crossorigin="anonymous"></script>
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
       const deliveryForm = document.getElementById('deliveryForm');
       const resultDiv = document.getElementById('result');

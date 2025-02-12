@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  background-color: rgb(215, 240, 245) !important;
+  font-family: "roboto";
+}
+.section-center {
+  max-width: 80%;
+  margin: 0 auto;
+  padding:  8px 0;
+  margin-top: 14px;
+}
+.gift-img {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
+  width: 350px;
+}
+
+.deadline {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; 
+}
+.deadline-format {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+  background-image: linear-gradient(to top, lime, 20%, cyan);
+  max-width: 25%;
+  width: 100px;	
+  height: 100px;	
+  background-color: #FFFFFF;	
+  position: relative;	
+  box-shadow: -5px -1px 17px 3px #FF547E, 10px 0px 38px -1px #3DBBFF;
+  border-image-slice: 13 13 13 13;
+  border-image-width:  13px 13px 13px 13px;
+  border-image-outset: 13px 13px 13px 13px;
+  border-image-repeat:repeat repeat;
+  border-image-source: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-4.png");
+  border-style: solid;
+
+}
+
+.deadline-format h4 {
+  /* display: flex; */
+  font-size: 20px;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 8px;
+  padding: 0 10px;
+}
+
+.deadline-format span {
+  display: flex;
+  color: white;
+  justify-content: center;
+}

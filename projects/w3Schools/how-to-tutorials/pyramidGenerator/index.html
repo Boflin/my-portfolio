@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Pyarmid Generator - Cory Mischiek</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Pyramid Generator</h1>
+    <form id="pyramidForm">
+      <!-- entry and label for the character -->
+      <label for="char">Character:</label>
+      <input type="text" id="char" maxlength="1" required />
+      <br>
+
+      <!-- entry and label for the number of rows -->
+      <label for="rows">Num of Rows:</label>
+      <input type="number" id="rows" min="1" required />
+      <br>
+
+      <!-- Button that runs a function when clicked -->
+      <button type="button" onclick="generatePyramid()">Generate Pyramid</button>
+
+    </form>
+    <div id="pyramidOutput"></div>
+  </div><!--! .container-->
+
+  <script src="./app.js"></script>
+</body>
+</html>
