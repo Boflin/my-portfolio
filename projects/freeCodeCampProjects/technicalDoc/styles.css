@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+}
+
+nav {
+  background: #f4f4f4;
+  padding: 10px;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#navbar h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+#navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#navbar ul li {
+  margin: 10px 0;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #333;
+}
+
+#navbar a:hover {
+  text-decoration: underline;
+}
+
+#main-doc {
+  margin-left: 220px;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.main-section {
+  margin-bottom: 20px;
+}
+
+.main-section h2 {
+  color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  nav {
+      position: relative;
+      width: 100%;
+      height: auto;
+  }
+  
+  #main-doc {
+      margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+      flex-direction: column;
+  }
+
+  nav {
+      position: relative; /* Change from fixed to relative */
+      width: 100%; /* Make the navbar full width */
+      height: auto; /* Allow height to adjust based on content */
+  }
+  
+  #main-doc {
+      margin-left: 0; /* Remove left margin */
+      padding-top: 20px; /* Add padding at the top for spacing */
+  }
+}

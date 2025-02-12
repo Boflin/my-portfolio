@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Budget App - Cory Mischiek</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Tracker</h1>
+        
+        <!-- Balance Summary -->
+        <div class="balance-container">
+            <h2>Your Balance</h2>
+            <h1 id="balance">$0.00</h1>
+            
+            <div class="income-expense-container">
+                <div>
+                    <h4>Income</h4>
+                    <p id="money-plus" class="money plus">+$0.00</p>
+                </div>
+                <div>
+                    <h4>Expenses</h4>
+                    <p id="money-minus" class="money minus">-$0.00</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Add New Transaction -->
+        <div class="add-transaction-container">
+            <h3>Add New Transaction</h3>
+            <form id="form">
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="Enter description..." required>
+                </div>
+                <div class="form-control">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select a category...</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Food">Food</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Education">Education</option>
+                        <option value="Debt">Debt Payments</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount..." required>
+                    <small>* Negative - expense, Positive - income</small>
+                </div>
+                <button class="btn">Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Savings Tracker -->
+        <div class="savings-container">
+            <h3>Savings Tracker</h3>
+            <div class="savings-form">
+                <div class="form-control">
+                    <label for="currentSavings">Current Savings</label>
+                    <input type="number" id="currentSavings" placeholder="Enter current savings...">
+                </div>
+                <div class="form-control">
+                    <label for="savingsGoal">Savings Goal</label>
+                    <input type="number" id="savingsGoal" placeholder="Enter savings goal...">
+                </div>
+                <button id="updateSavings" class="btn">Update Savings</button>
+            </div>
+            <div class="savings-stats">
+                <div class="savings-progress">
+                    <h4>Progress to Goal</h4>
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+                    <p id="progressText">0%</p>
+                </div>
+                <div class="savings-recommendation">
+                    <h4>Monthly Savings Recommendation</h4>
+                    <p id="recommendedSavings">$0.00</p>
+                    <div class="savings-details">
+                        <div class="detail-item">
+                            <span>Monthly Income:</span>
+                            <span id="monthlyIncomeText">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Monthly Expenses:</span>
+                            <span id="monthlyExpensesText">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Disposable Income:</span>
+                            <span id="disposableIncomeText">$0.00</span>
+                        </div>
+                        <div class="detail-item highlight">
+                            <span>Recommended (20%):</span>
+                            <span id="recommendedPercentText">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="savings-projections">
+                    <h4>Savings Projections</h4>
+                    <div class="interest-rate-control">
+                        <label for="interestRate">Annual Interest Rate (%)</label>
+                        <input type="number" id="interestRate" value="2.0" min="0" max="100" step="0.1">
+                    </div>
+                    <div class="projections-details">
+                        <div class="detail-item">
+                            <span>6 Months:</span>
+                            <span id="sixMonthProjection">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>1 Year:</span>
+                            <span id="oneYearProjection">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>2 Years:</span>
+                            <span id="twoYearProjection">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>5 Years:</span>
+                            <span id="fiveYearProjection">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="goal-timeline">
+                    <h4>Goal Timeline</h4>
+                    <div class="timeline-details">
+                        <div class="detail-item">
+                            <span>Amount Needed:</span>
+                            <span id="amountNeededText">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Time to Goal:</span>
+                            <span id="timeToGoalText">0 months</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Expected Date:</span>
+                            <span id="goalDateText">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="history-container">
+            <h3>Transaction History</h3>
+            <ul id="list" class="list">
+                <!-- Transactions will be added here dynamically -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

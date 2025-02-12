@@ -1,10 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            /*background-image: linear-gradient(to top left, red, blue, white);*/
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #4caf50;
+        }
+    </style>
 </head>
 <body>
-$END$
+<section class="palindrome-checker">
+    <h1 class="text palindrome-text">Palindrome Checker</h1>
+    <input type="text" id="inputString-pal" placeholder="Enter a word or phrase" />
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="pal-result"></p>
+</section>
+
+<section class="quote-generator">
+    <h1 class="text quote-text">Quote Generator</h1>
+    <button onclick="generateQuote()">Generate</button>
+    <p id="quote-result"></p>
+</section>
+
+    <script>
+        
+        function checkPalindrome() {
+            const resultDisplay = document.getElementById("pal-result");
+
+            // step 1: get the input value
+            const inputString = document.getElementById("inputString-pal").value;
+
+            // step 2: clean the input string
+            const cleanedString = inputString.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+
+            // step 3: reverse the cleaned string
+            const reversedString = cleanedString.split('').reverse().join('');
+
+            // step 4: Compare the cleaned string to it's reversed version
+            if (cleanedString === reversedString) {
+                resultDisplay.innerText = `"${inputString}" is a palindrome!`;
+            } else {
+                resultDisplay.innerText = `"${inputString}" is not a palindrome.`
+            }
+        }
+
+        const quotes = [
+            "The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",
+            "The way to get started is to quit talking and begin doing. - Walt Disney",
+            "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+            "If life were predictable it would cease to be life, and be without flavor. - Eleanor Roosevelt",
+            "If you look at what you have in life, you'll always have more. - Oprah Winfrey",
+            "Life is what happens when you're busy making other plans. - John Lennon"
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+            document.getElementById('quote-result').innerText = randomQuote;
+
+        }
+
+
+    </script>
 </body>
 </html>
