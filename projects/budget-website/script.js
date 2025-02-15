@@ -1,3 +1,4 @@
+// fixed this
 // Get DOM elements
 const balanceEl = document.getElementById('balance');
 const moneyPlusEl = document.getElementById('money-plus');
