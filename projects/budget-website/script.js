@@ -26,6 +26,40 @@ const oneYearProjectionEl = document.getElementById('oneYearProjection');
 const twoYearProjectionEl = document.getElementById('twoYearProjection');
 const fiveYearProjectionEl = document.getElementById('fiveYearProjection');
 
+// Define categories
+const categories = {
+    income: [
+        'Paycheck',
+        'Tax Return',
+        'Dividend',
+        'Investment Return',
+        'Side Hustle',
+        'Gift',
+        'Bonus',
+        'Interest',
+        'Rental Income',
+        'Other Income'
+    ],
+    expense: [
+        'Housing',
+        'Transportation',
+        'Food',
+        'Utilities',
+        'Healthcare',
+        'Entertainment',
+        'Shopping',
+        'Education',
+        'Debt Payments',
+        'Insurance',
+        'Savings',
+        'Investments',
+        'Personal Care',
+        'Gifts',
+        'Travel',
+        'Other Expenses'
+    ]
+};
+
 // Initialize Chart
 let expenseChart;
 
@@ -36,20 +70,107 @@ let savings = JSON.parse(localStorage.getItem('savings')) || {
     goal: 0
 };
 
+// Initialize transactions array
+// let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+// Show transaction form
+function showTransactionForm(type) {
+    const modal = document.getElementById('transactionForm');
+    const title = document.getElementById('transactionFormTitle');
+    const form = document.getElementById('form');
+    const amountInput = document.getElementById('amount');
+    const categoryContainer = document.querySelector('.form-control:has(#category)');
+    const categorySelect = document.getElementById('category');
+    
+    // Reset form
+    form.reset();
+    
+    // Set title based on type
+    title.innerText = `Add New ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+    
+    // Show modal with animation
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    
+    // Trigger reflow to enable animation
+    modal.offsetHeight;
+    modal.classList.add('show');
+    
+    // Update category options based on type
+    categorySelect.innerHTML = '<option value="">Select a category...</option>';
+    const relevantCategories = type === 'income' ? categories.income : categories.expense;
+    relevantCategories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+    });
+    
+    // Handle form fields based on type
+    if (type === 'expense') {
+        amountInput.setAttribute('placeholder', 'Enter expense amount...');
+        amountInput.addEventListener('input', function() {
+            if (this.value > 0) this.value = -this.value;
+        });
+        categoryContainer.style.display = 'block';
+        categorySelect.required = true;
+        categorySelect.value = '';
+    } else {
+        amountInput.setAttribute('placeholder', 'Enter income amount...');
+        amountInput.addEventListener('input', function() {
+            if (this.value < 0) this.value = Math.abs(this.value);
+        });
+        categoryContainer.style.display = 'block'; // Show category for income too
+        categorySelect.required = true;
+        categorySelect.value = '';
+    }
+    
+    // Focus on description field
+    document.getElementById('description').focus();
+}
+
+// Hide transaction form
+function hideTransactionForm() {
+    const modal = document.getElementById('transactionForm');
+    const form = document.getElementById('form');
+    
+    // Hide modal with animation
+    modal.classList.remove('show');
+    document.body.classList.remove('modal-open');
+    
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+        modal.style.display = 'none';
+        form.reset();
+    }, 300);
+}
+
+// Close modal when clicking outside
+document.getElementById('transactionForm').addEventListener('click', function(e) {
+    if (e.target === this) {
+        hideTransactionForm();
+    }
+});
+
 // Add transaction
 function addTransaction(e) {
     e.preventDefault();
 
-    if (descriptionEl.value.trim() === '' || amountEl.value.trim() === '' || categoryEl.value.trim() === '') {
-        alert('Please add a description, category, and amount');
+    const description = descriptionEl.value.trim();
+    const amount = amountEl.value.trim();
+    const category = categoryEl.value;
+
+    // Validate form
+    if (description === '' || amount === '' || category === '') {
+        alert('Please fill in all fields');
         return;
     }
 
     const transaction = {
         id: generateID(),
-        description: descriptionEl.value,
-        category: categoryEl.value,
-        amount: +amountEl.value,
+        description: description,
+        category: category,
+        amount: +amount,
         timestamp: new Date().toISOString()
     };
 
@@ -57,10 +178,9 @@ function addTransaction(e) {
     addTransactionDOM(transaction);
     updateValues();
     updateLocalStorage();
-
-    descriptionEl.value = '';
-    categoryEl.value = '';
-    amountEl.value = '';
+    
+    // Hide modal after successful submission
+    hideTransactionForm();
 }
 
 // Generate random ID
@@ -92,44 +212,9 @@ function removeTransaction(id) {
     init();
 }
 
-// Update local storage transactions
+// Update local storage
 function updateLocalStorage() {
     localStorage.setItem('transactions', JSON.stringify(transactions));
-}
-
-// Update savings in localStorage
-function updateSavingsStorage() {
-    localStorage.setItem('savings', JSON.stringify(savings));
-}
-
-// Calculate compound interest for savings projections
-function calculateCompoundInterest(principal, monthlyContribution, annualRate, years) {
-    const monthlyRate = annualRate / 12 / 100;
-    const months = years * 12;
-    let total = principal;
-    
-    for (let i = 0; i < months; i++) {
-        total += monthlyContribution;
-        total *= (1 + monthlyRate);
-    }
-    
-    return total;
-}
-
-// Update savings projections
-function updateSavingsProjections(monthlyContribution) {
-    const currentSavings = savings.current;
-    const annualRate = parseFloat(interestRateEl.value) || 0;
-    
-    const sixMonths = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 0.5);
-    const oneYear = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 1);
-    const twoYears = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 2);
-    const fiveYears = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 5);
-    
-    sixMonthProjectionEl.innerText = `$${sixMonths.toFixed(2)}`;
-    oneYearProjectionEl.innerText = `$${oneYear.toFixed(2)}`;
-    twoYearProjectionEl.innerText = `$${twoYears.toFixed(2)}`;
-    fiveYearProjectionEl.innerText = `$${fiveYears.toFixed(2)}`;
 }
 
 // Update the balance, income and expense
@@ -179,7 +264,12 @@ function updateChart() {
                 '#2ecc71',
                 '#e74c3c',
                 '#95a5a6',
-                '#d35400'
+                '#d35400',
+                '#3498db',
+                '#2c3e50',
+                '#f1c40f',
+                '#8e44ad',
+                '#16a085'
             ]
         }]
     };
@@ -197,7 +287,11 @@ function updateChart() {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'right'
+                    position: 'right',
+                    labels: {
+                        boxWidth: 12,
+                        padding: 10
+                    }
                 },
                 tooltip: {
                     callbacks: {
@@ -258,6 +352,41 @@ function updateSavingsRecommendation() {
         timeToGoalTextEl.innerText = 'N/A';
         goalDateTextEl.innerText = 'N/A';
     }
+}
+
+// Update savings in localStorage
+function updateSavingsStorage() {
+    localStorage.setItem('savings', JSON.stringify(savings));
+}
+
+// Calculate compound interest for savings projections
+function calculateCompoundInterest(principal, monthlyContribution, annualRate, years) {
+    const monthlyRate = annualRate / 12 / 100;
+    const months = years * 12;
+    let total = principal;
+    
+    for (let i = 0; i < months; i++) {
+        total += monthlyContribution;
+        total *= (1 + monthlyRate);
+    }
+    
+    return total;
+}
+
+// Update savings projections
+function updateSavingsProjections(monthlyContribution) {
+    const currentSavings = savings.current;
+    const annualRate = parseFloat(interestRateEl.value) || 0;
+    
+    const sixMonths = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 0.5);
+    const oneYear = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 1);
+    const twoYears = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 2);
+    const fiveYears = calculateCompoundInterest(currentSavings, monthlyContribution, annualRate, 5);
+    
+    sixMonthProjectionEl.innerText = `$${sixMonths.toFixed(2)}`;
+    oneYearProjectionEl.innerText = `$${oneYear.toFixed(2)}`;
+    twoYearProjectionEl.innerText = `$${twoYears.toFixed(2)}`;
+    fiveYearProjectionEl.innerText = `$${fiveYears.toFixed(2)}`;
 }
 
 // Update savings progress

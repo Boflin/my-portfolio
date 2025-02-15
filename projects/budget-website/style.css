@@ -95,11 +95,60 @@ h3::before {
 }
 
 .income-expense-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 20px;
+    gap: 20px;
+}
+
+.transaction-btn {
+    flex: 1;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    width: 100%;
+}
+
+.transaction-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-btn:active {
+    transform: translateY(0);
+}
+
+.income-btn {
+    border-left: 5px solid #2ecc71;
+}
+
+.expense-btn {
+    border-left: 5px solid #c0392b;
+}
+
+.transaction-btn h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
+}
+
+.cancel-btn {
+    background-color: #95a5a6;
+}
+
+.cancel-btn:hover {
+    background-color: #7f8c8d;
 }
 
 .income-expense-container > div {
@@ -294,8 +343,20 @@ small {
 }
 
 .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
     margin: 20px 0;
-    height: 200px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
 }
 
 .savings-container {
@@ -421,6 +482,154 @@ small {
     color: var(--primary-color);
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow: auto;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-header {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2d3436;
+    font-size: 1.3rem;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.modal .form-control {
+    margin-bottom: 20px;
+}
+
+.modal .form-control label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2d3436;
+    font-weight: 500;
+}
+
+.modal .form-control input,
+.modal .form-control select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.modal .form-control input:focus,
+.modal .form-control select:focus {
+    border-color: #2ecc71;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+}
+
+.modal .form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.modal .btn {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.modal .cancel-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.modal .cancel-btn:hover {
+    background-color: #d0d0d0;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+
+    .modal .form-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal .btn {
+        width: 100%;
+    }
+}
+
+@media (max-height: 600px) {
+    .modal-content {
+        margin: 5% auto;
+    }
+}
+
 @media (max-width: 600px) {
     .income-expense-container {
         grid-template-columns: 1fr;
@@ -443,4 +652,39 @@ small {
     .savings-stats {
         grid-template-columns: 1fr;
     }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .income-expense-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .transaction-btn {
+        width: 100%;
+    }
+
+    .balance-container,
+    .add-transaction-container,
+    .savings-container,
+    .history-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        margin: 10px 0;
+    }
+
+    .chart-container {
+        height: 300px;
+        margin: 20px 0;
+    }
+}
+
+/* Prevent scrolling when modal is open */
+body.modal-open {
+    overflow: hidden;
 }

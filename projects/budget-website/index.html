@@ -17,14 +17,14 @@
             <h1 id="balance">$0.00</h1>
             
             <div class="income-expense-container">
-                <div>
+                <button class="transaction-btn income-btn" onclick="showTransactionForm('income')">
                     <h4>Income</h4>
                     <p id="money-plus" class="money plus">+$0.00</p>
-                </div>
-                <div>
+                </button>
+                <button class="transaction-btn expense-btn" onclick="showTransactionForm('expense')">
                     <h4>Expenses</h4>
                     <p id="money-minus" class="money minus">-$0.00</p>
-                </div>
+                </button>
             </div>
             <div class="chart-container">
                 <canvas id="expenseChart"></canvas>
@@ -32,8 +32,8 @@
         </div>
 
         <!-- Add New Transaction -->
-        <div class="add-transaction-container">
-            <h3>Add New Transaction</h3>
+        <div class="add-transaction-container" id="transactionForm" style="display: none;">
+            <h3 id="transactionFormTitle">Add New Transaction</h3>
             <form id="form">
                 <div class="form-control">
                     <label for="description">Description</label>
@@ -43,25 +43,16 @@
                     <label for="category">Category</label>
                     <select id="category" required>
                         <option value="">Select a category...</option>
-                        <option value="Housing">Housing</option>
-                        <option value="Transportation">Transportation</option>
-                        <option value="Food">Food</option>
-                        <option value="Utilities">Utilities</option>
-                        <option value="Healthcare">Healthcare</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Education">Education</option>
-                        <option value="Debt">Debt Payments</option>
-                        <option value="Insurance">Insurance</option>
-                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-control">
                     <label for="amount">Amount</label>
                     <input type="number" id="amount" placeholder="Enter amount..." required>
-                    <small>* Negative - expense, Positive - income</small>
                 </div>
-                <button class="btn">Add Transaction</button>
+                <div class="form-buttons">
+                    <button type="submit" class="btn">Add Transaction</button>
+                    <button type="button" class="btn cancel-btn" onclick="hideTransactionForm()">Cancel</button>
+                </div>
             </form>
         </div>
 
